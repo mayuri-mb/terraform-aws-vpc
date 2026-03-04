@@ -1,5 +1,5 @@
 resource "aws_vpc_peering_connection" "default" {
-  count = is_peering_required ? 1 : 0
+  count = var.is_peering_required ? 1 : 0
 
   #peer_owner_id = var.peer_owner_id
   #acceptor
