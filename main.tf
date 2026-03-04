@@ -100,6 +100,7 @@ resource "aws_route" "public" {
   gateway_id = aws_internet_gateway.main.id 
 }
 
+#elastic ip creation
 resource "aws_eip" "nat" {
   domain   = "vpc"
 
@@ -111,9 +112,10 @@ tags = merge(local.common_tags,
 )      
 }
 
+#nat gateway creation
 resource "aws_nat_gateway" "main" {
   allocation_id = aws_eip.nat.id
-  subnet_id     = aws_subnet.public[0].id
+  subnet_id     = aws_subnet.public[0].id  # we are specifically creating this in us-east-1a AZ
 
   tags = merge(local.common_tags,
         {
