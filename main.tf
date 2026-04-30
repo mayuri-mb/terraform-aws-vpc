@@ -161,7 +161,7 @@ resource "aws_route_table_association" "database" {
     route_table_id = aws_route_table.database.id 
 }
 
-resource "aws_db_subnet_group" "main" {
+resource "aws_db_subnet_group" "roboshop" {
   name = "${var.project}-${var.environment}"   #roboshop-env
   subnet_ids = [aws_subnet.database[0].id, aws_subnet.database[1].id]
 
