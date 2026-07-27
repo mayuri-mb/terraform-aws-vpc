@@ -122,6 +122,3 @@ roboshop-dev-database-us-east-1a
 
 ---
 
-## License
-
-MIT
